@@ -1,0 +1,332 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --purple: #845ec2;
+  --pink: #d65db1;
+  --light-pink: #ff6f91;
+  --white: #fff;
+  --black: #000;
+  --red: #f00;
+  --h1-font-size: 3em;
+}
+
+body {
+  background-image: linear-gradient(100deg, var(--purple), var(--pink));
+  background-image: url("./BonxImages/bgImage.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  color: var(--white);
+}
+
+body::-webkit-scrollbar {
+  /* display: block; */
+  display: none;
+}
+
+.arrow-up-button {
+  height: 3em;
+  width: 3em;
+  border: 1px solid silver;
+  border-radius: 100%;
+  position: fixed;
+  z-index: 9999;
+  bottom: 0;
+  right: 0;
+  margin-inline-end: 2em;
+  margin-block-end: 1.5em;
+  opacity: 0;
+}
+
+/* body::-webkit-scrollbar-track {
+  height: 100%;
+  width: 0.2em;
+  background-color: var(--white);
+}
+
+body::-webkit-scrollbar-thumb {
+  width: 0.1em;
+  height: 2px;
+  background-color: var(--black);
+  border: 1px solid transparent;
+  border-radius: 2em;
+} */
+
+.bonx-header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 1em;
+  background-color: var(--black);
+  color: var(--white);
+  /* margin-bottom: 15em; */
+  position: sticky;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 9999;
+}
+
+.bonx-logo-container {
+  border: 1px solid transparent;
+  border-radius: 1em;
+  background-color: var(--white);
+  color: var(--purple);
+  padding: 0.5em;
+  backdrop-filter: blur(5px);
+  box-shadow: inset 1px 1px 30px var(--pink),
+    inset -1px -1px 30px var(--light-pink);
+}
+
+.bonx-navigation-container {
+  display: flex;
+  align-items: center;
+  gap: 0em 1em;
+}
+
+.bonx-navigation-container {
+  margin-inline: 1em;
+}
+
+.bonx-span-anchor-tag {
+  text-decoration: none;
+  color: var(--white);
+}
+
+.bonx-extra-page-icon {
+  font-size: 2em;
+}
+
+.bonx-home-page-side-bar-navigtion-container {
+  position: fixed;
+  height: 100%;
+  width: 0;
+  z-index: 999999;
+  /* border: 1px solid silver; */
+  /* background-color: var(--black); */
+  background-image: url("./BonxImages/NBA1.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  overflow: hidden;
+  transition: width 0.5s ease-in;
+}
+
+.x-mark-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 3em;
+  width: 3em;
+  /* border: 1px solid silver; */
+  aspect-ratio: 2/2;
+  /* text-align: center; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--red);
+}
+
+#sideBarRemove {
+  font-size: 2em;
+}
+
+.bonx-home-page-list-container {
+  width: 100%;
+}
+
+.bonx-home-page-list {
+  list-style: none;
+  padding: 3em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.bonx-home-page-list-item {
+  padding-bottom: 1em;
+  /* text-align: start; */
+}
+
+.bonx-home-page-list-item-anchor-tag {
+  color: var(--white);
+  text-decoration: none;
+  text-shadow: 1px 1px 10px var(--black), -1px 1px 10px var(--black),
+    -1px -1px 10px var(--black), 1px -1px 10px var(--black);
+}
+
+.bonx-home-page-section {
+  /* height: 50vh; */
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  flex-direction: column;
+  border: 1px solid silver;
+  border-radius: 2em;
+  backdrop-filter: blur(8px);
+  box-shadow: inset 1px 1px 30px var(--pink), inset -1px 1px 30px var(--white);
+  padding: 5em;
+  overflow: hidden;
+  background-image: url("./BonxImages/NBA2.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* aspect-ratio: 3/2; */
+  background-attachment: fixed;
+}
+
+.bonx-home-page-section-description {
+  margin-block-start: 5em;
+  margin-block-end: 5em;
+}
+
+h1:not(.bonx-logo) {
+  font-size: var(--h1-font-size);
+}
+
+.bonx-home-page-section-description-title {
+  color: var(--white);
+  text-shadow: 2px 2px 10px var(--black), -2px 2px 10px var(--black),
+    -2px -2px 10px var(--black);
+}
+
+.bonx-home-page-section-play-button {
+  padding: 1em;
+  border: 1px solid transparent;
+  border-radius: 20px;
+  /* background-color: var(--white);
+  color: var(--black); */
+  backdrop-filter: blur(6px);
+}
+
+.bonx-home-page-section-arrow-span {
+  margin-left: 1em;
+}
+
+.bonx-home-page-main-container {
+  /* for pc screen use height :100vh; */
+  /* height: 100vh; */
+  width: 100%;
+  height: 200vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+  text-align: center;
+  position: relative;
+  /* background-color: var(--black); */
+  background-image: url("./BonxImages/Gamepad.png");
+  /* background-image: url("./BonxImages/lionFace.png"); */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.bonx-home-page-main-description-paragraph-container {
+  padding: 5em;
+  margin-bottom: 5em;
+}
+
+.bonx-home-page-main-description-paragraph-title {
+  backdrop-filter: blur(5px);
+  text-shadow: 2px 2px 10px var(--black), -2px 2px 10px var(--black),
+    -2px -2px 10px var(--black);
+}
+
+.bonx-home-page-article-container {
+  height: auto;
+  width: 100%;
+  /* background-color: var(--pink); */
+  backdrop-filter: blur(10px);
+}
+
+.bonx-home-page-article-scroll-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding-block-end: 1em;
+}
+
+.scroll-button,
+button {
+  padding: 1em;
+  border: 1px solid silver;
+  border-radius: 100%;
+  background-color: var(--light-pink);
+  color: var(--white);
+  transition: all 0.5s ease-in;
+}
+
+.scroll-button:hover,
+button:hover {
+  background-color: var(--pink);
+  transition: none;
+}
+
+.scroll-button:active,
+button:active {
+  background-color: var(--purple);
+}
+
+.btn-prev {
+  margin-inline-end: 1em;
+}
+
+.bonx-home-page-article-game-carousel-container {
+  display: flex;
+  height: 20em;
+  background-color: var(--white);
+  overflow: auto;
+  padding: 1em;
+  scroll-behavior: smooth;
+}
+
+.bonx-home-page-article-game-carousel-container::-webkit-scrollbar {
+  display: none;
+}
+
+.bonx-home-page-article-item {
+  border: 1px solid silver;
+  border-radius: 2em;
+  height: 100%;
+  margin-inline: 1em;
+  aspect-ratio: 2/3;
+  /* overflow: hidden; */
+}
+
+.bonx-home-page-carousel-image {
+  height: 100%;
+  width: 100%;
+}
+
+.bonx-home-page-article-item-paragraph {
+  text-align: center;
+}
+
+/* .grid-item1 {
+  grid-row-start: column 1;
+  grid-row-end: column 2;
+} */
+
+@media only screen and (min-width: 650px) {
+  .bonx-home-page-article-scroll-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: 1em;
+  }
+
+  .bonx-home-page-section {
+    background-image: url("./BonxImages/NBA4.png");
+  }
+} ;
