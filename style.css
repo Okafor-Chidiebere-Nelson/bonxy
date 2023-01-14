@@ -12,6 +12,7 @@
   --black: #000;
   --red: #f00;
   --h1-font-size: 3em;
+  --grey: #808080;
 }
 
 body {
@@ -22,6 +23,7 @@ body {
   background-attachment: fixed;
   background-size: cover;
   color: var(--white);
+  cursor: pointer;
 }
 
 body::-webkit-scrollbar {
@@ -60,16 +62,107 @@ body::-webkit-scrollbar-thumb {
 .bonx-header-container {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
+  gap: 0 1em;
   padding: 1em;
-  background-color: var(--black);
-  color: var(--white);
+  background-color: var(--white);
+  backdrop-filter: blur(10px);
+  color: var(--black);
   /* margin-bottom: 15em; */
   position: sticky;
   top: 0;
   right: 0;
   left: 0;
   z-index: 9999;
+}
+
+.bonx-header-nav-container {
+  transition: all 0.5s ease-in;
+}
+
+.list-item-hide {
+  display: none;
+  transition: all 0.5s ease-in;
+}
+
+.list-item-show {
+  display: block;
+  transition: all 0.5s ease-in;
+}
+
+.bonx-header-nav-list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  gap: 0 2em;
+}
+
+.list-item-others {
+  position: relative;
+}
+
+.bonx-toggle-down-reveal-item-container {
+  visibility: hidden;
+  position: absolute;
+  z-index: -99;
+  top: 2em;
+  left: -4em;
+  color: var(--black);
+  border: 1px solid silver;
+  height: auto;
+  padding: 1.5em;
+  width: 15em;
+  border-radius: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: var(--white);
+  backdrop-filter: blur(15px);
+  /* bottom: 0; */
+  /* transition: all 0.5s ease-in; */
+}
+
+.visibility {
+  visibility: visible;
+  z-index: 99;
+}
+
+.bonx-toggle-down-list,
+ul {
+  list-style: none;
+  cursor: pointer;
+}
+
+.bonx-toggle-down-list {
+  display: flex;
+  align-items: center;
+  flex-flow: column;
+  gap: 0.5em 0;
+}
+
+.show-list {
+  visibility: visible;
+  z-index: 99;
+}
+
+.hide-list {
+  visibility: hidden;
+  z-index: -99;
+}
+
+.hide-me {
+  display: none;
+}
+
+.show-me {
+  display: block;
+}
+
+.bonx-toggle-down-list-item-anchor-tag {
+  text-decoration: none;
+  color: var(--black);
 }
 
 .bonx-logo-container {
@@ -109,10 +202,8 @@ body::-webkit-scrollbar-thumb {
   z-index: 999999;
   /* border: 1px solid silver; */
   /* background-color: var(--black); */
-  background-image: url("./BonxImages/NBA1.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+
+  background-color: var(--black);
 
   overflow: hidden;
   transition: width 0.5s ease-in;
@@ -158,13 +249,13 @@ body::-webkit-scrollbar-thumb {
 .bonx-home-page-list-item-anchor-tag {
   color: var(--white);
   text-decoration: none;
-  text-shadow: 1px 1px 10px var(--black), -1px 1px 10px var(--black),
-    -1px -1px 10px var(--black), 1px -1px 10px var(--black);
+  /* text-shadow: 1px 1px 10px var(--white), -1px 1px 10px var(--white),
+    -1px -1px 10px var(--white), 1px -1px 10px var(--white); */
 }
 
 .bonx-home-page-section {
   /* height: 50vh; */
-  height: 100vh;
+  height: 85vh;
   width: 100%;
   display: flex;
   align-items: flex-start;
@@ -173,7 +264,7 @@ body::-webkit-scrollbar-thumb {
   border: 1px solid silver;
   border-radius: 2em;
   backdrop-filter: blur(8px);
-  box-shadow: inset 1px 1px 30px var(--pink), inset -1px 1px 30px var(--white);
+  /* box-shadow: inset 1px 1px 30px var(--pink), inset -1px 1px 30px var(--white); */
   padding: 5em;
   overflow: hidden;
   background-image: url("./BonxImages/NBA2.png");
@@ -302,6 +393,10 @@ button:active {
   margin-inline: 1em;
   aspect-ratio: 2/3;
   /* overflow: hidden; */
+  transition: all 0.5s ease-in;
+}
+.bonx-home-page-article-item:hover {
+  transform: scale(1.1);
 }
 
 .bonx-home-page-carousel-image {
@@ -318,6 +413,70 @@ button:active {
   grid-row-end: column 2;
 } */
 
+.bonx-home-page-game-description-container {
+  /* display: flex; */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  height: 85vh;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  margin: 1em;
+  background-color: var(--black);
+}
+
+.bonx-home-page-game-description-image-container {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  z-index: 0;
+}
+
+.bonx-home-page-game-description-paragraph-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  /* border: 10px solid silver; */
+  text-align: center;
+  flex-flow: wrap;
+  background-image: url("./BonxImages/lionFace.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  z-index: 0;
+}
+
+.overlay-container {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+}
+
+.bonx-home-page-extra-image-container {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  height: 100%;
+  width: 100%;
+  /* aspect-ratio: 2/2; */
+  /* border: 10px solid silver; */
+  overflow: auto;
+  margin: 1em;
+}
+
+.bonx-home-page-extra-images {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
 @media only screen and (min-width: 650px) {
   .bonx-home-page-article-scroll-container {
     display: flex;
@@ -328,5 +487,10 @@ button:active {
 
   .bonx-home-page-section {
     background-image: url("./BonxImages/NBA4.png");
+  }
+
+  .bonx-home-page-extra-image-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
   }
 } ;
