@@ -12,7 +12,7 @@
   --black: #000;
   --red: #f00;
   --h1-font-size: 3em;
-  --grey: #808080;
+  --grey: #eeeeee80;
 }
 
 body {
@@ -24,6 +24,7 @@ body {
   background-size: cover;
   color: var(--white);
   cursor: pointer;
+  position: relative;
 }
 
 body::-webkit-scrollbar {
@@ -43,6 +44,55 @@ body::-webkit-scrollbar {
   margin-inline-end: 2em;
   margin-block-end: 1.5em;
   opacity: 0;
+}
+
+.modal-container {
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  z-index: 99999999999999999999;
+  border: 1px solid silver;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+.modal-cover-container {
+  position: relative;
+  z-index: 9999999999999;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--grey);
+  backdrop-filter: blur(10px);
+}
+
+.remove-modal-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.modal-image-container {
+  height: 20em;
+  width: 10em;
+  border: 1px solid silver;
+  aspect-ratio: 3/2;
+}
+
+.modal-image-description-container {
+  border: 1px solid silver;
+}
+
+.modal-image {
+  height: 100%;
+  width: 100%;
 }
 
 /* body::-webkit-scrollbar-track {
@@ -104,8 +154,8 @@ body::-webkit-scrollbar-thumb {
 
 .bonx-toggle-down-reveal-item-container {
   visibility: hidden;
-  position: absolute;
   z-index: -99;
+  position: absolute;
   top: 2em;
   left: -4em;
   color: var(--black);
@@ -120,8 +170,6 @@ body::-webkit-scrollbar-thumb {
   flex-direction: column;
   background-color: var(--white);
   backdrop-filter: blur(15px);
-  /* bottom: 0; */
-  /* transition: all 0.5s ease-in; */
 }
 
 .visibility {
@@ -157,6 +205,10 @@ ul {
 }
 
 .show-me {
+  display: block;
+}
+
+.active {
   display: block;
 }
 
@@ -395,6 +447,7 @@ button:active {
   /* overflow: hidden; */
   transition: all 0.5s ease-in;
 }
+
 .bonx-home-page-article-item:hover {
   transform: scale(1.1);
 }
@@ -408,75 +461,6 @@ button:active {
   text-align: center;
 }
 
-/* .grid-item1 {
-  grid-row-start: column 1;
-  grid-row-end: column 2;
-} */
-
-.bonx-home-page-game-description-container {
-  /* display: flex; */
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  height: 85vh;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-  margin: 1em;
-  background-color: var(--black);
-}
-
-.bonx-home-page-game-description-image-container {
-  height: 100%;
-  width: 100%;
-  position: relative;
-  z-index: 0;
-}
-
-.bonx-home-page-game-description-paragraph-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  height: 100%;
-  width: 100%;
-  /* border: 10px solid silver; */
-  text-align: center;
-  flex-flow: wrap;
-  background-image: url("./BonxImages/lionFace.png");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  position: relative;
-  z-index: 0;
-}
-
-.overlay-container {
-  position: absolute;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: -1;
-}
-
-.bonx-home-page-extra-image-container {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  height: 100%;
-  width: 100%;
-  /* aspect-ratio: 2/2; */
-  /* border: 10px solid silver; */
-  overflow: auto;
-  margin: 1em;
-}
-
-.bonx-home-page-extra-images {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-
 @media only screen and (min-width: 650px) {
   .bonx-home-page-article-scroll-container {
     display: flex;
@@ -487,10 +471,5 @@ button:active {
 
   .bonx-home-page-section {
     background-image: url("./BonxImages/NBA4.png");
-  }
-
-  .bonx-home-page-extra-image-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
   }
 } ;

@@ -139,21 +139,41 @@ function addCarouselItem(arr) {
     .join("");
   bonxHomePageArticleGameCarouselContainer.innerHTML = carouselImageItem;
   // console.log(carouselImageItem);
+  const bonxHomePageCarouselImage = document.querySelectorAll(
+    ".bonx-home-page-carousel-image"
+  );
+  const modalContainer = document.querySelector(".modal-container");
+  // const modalCoverContainer = document.querySelector(".modal-cover-container");
+  const removeModalButton = document.querySelector(".remove-modal-button");
+
+  removeModalButton.addEventListener("click", () => {
+    modalContainer.style.display = "none";
+  });
+
+  modalImageSrc = document.querySelector(".modal-image").src;
+
+  bonxHomePageCarouselImage.forEach((eachItem, index) => {
+    eachItem.addEventListener("click", () => {
+      bonxHomePageCarouselImage.forEach((carousel) => {
+        carousel.classList.remove("active");
+      });
+
+      eachItem.classList.add("active");
+
+      modalImageSrc = carouselImages[index];
+      modalContainer.style.display = "block";
+    });
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  });
 }
 
 window.addEventListener("DOMContentLoaded", () => {
   addCarouselItem(carouselImages);
 });
-
-const bonxHomePageGame = document.querySelector(".bonx-home-page-game").src;
-const bonxHomePageGameDescriptionParagraph = document.querySelector(
-  ".bonx-home-page-game-description-paragraph"
-);
-const prevButton = document.querySelector(".prev-button");
-const nextButton = document.querySelector(".next-button");
-const bonxHomePageGameDescriptionContainer = document.querySelector(
-  ".bonx-home-page-game-description-container"
-);
 
 // let count = 0;
 // window.onload = function loadImage() {};
